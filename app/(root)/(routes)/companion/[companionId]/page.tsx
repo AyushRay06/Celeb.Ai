@@ -16,7 +16,11 @@ const CompanionIdPage = async ({ params }: CompanionIdPageProps) => {
 
   const categories = await prismadb.category.findMany()
 
-  return <CompanionForm initialData={companion} categories={categories} />
+  return (
+    <div className="bg-primary/10">
+      <CompanionForm initialData={companion} categories={categories} />
+    </div>
+  )
 }
 
 export default CompanionIdPage
