@@ -4,8 +4,15 @@ import * as z from "zod"
 import { Companion, Category } from "@prisma/client"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Form } from "@/components/ui/form"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form"
 import { on } from "events"
+import { Separator } from "@/components/ui/separator"
 
 interface CompanionFormProps {
   initialData: Companion | null
@@ -58,11 +65,24 @@ const CompanionForm = ({ categories, initialData }: CompanionFormProps) => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 pb-10"
         >
-          <div className="space-y-2 w-full col-span-2">
+          <div className="space-y-2 w-full">
             <div>
-              <h3>General Information</h3>
+              <h3 className="text-ld font-medium">General Information</h3>
+              <p className="text-sx text-muted-foreground">
+                General Information about your Companion
+              </p>
             </div>
+            <Separator className="bg-primary/10" />
           </div>
+          <FormField
+            name="src"
+            render={({ field }) => (
+              <FormItem className="flex flex-col items-center justify-center space-y-4 ">
+                <FormControl>Image Upload Component</FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </form>
       </Form>
     </div>
