@@ -280,9 +280,9 @@ const CompanionForm = ({ categories, initialData }: CompanionFormProps) => {
               </FormItem>
             )}
           />
-          <div className="w-full justify-center">
+          <div className="w-full justify-center items-center flex">
             <Button size="lg" disabled={isLoading}>
-              {initialData ? "Edi you Companion" : "Create your Companion"}
+              {initialData ? "Edit you Companion" : "Create your Companion"}
               <Wand2 className="w-4 h-4 ml-2" />
             </Button>
           </div>
