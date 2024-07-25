@@ -11,7 +11,10 @@ async function main() {
         { name: "Artist" },
         { name: "Animals" },
         { name: "Philosophy" },
-        { name: "Famous People" },
+        { name: "Organism" },
+        { name: "Food" },
+        { name: "Machine" },
+        { name: "Anime" },
       ],
     })
   } catch (error) {
