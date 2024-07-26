@@ -1,11 +1,34 @@
 import { Categories } from "@/components/Categories"
 import { SearchInput } from "@/components/search-input"
-import { ModeToggle } from "@/components/mode-toggle"
-import { UserButton, UserProfile } from "@clerk/nextjs"
 import prismadb from "@/lib/prismadb"
 
-const RootPage = async () => {
+interface RootPageprops {
+  searchParams: {
+    categoryId: string
+    name: string
+  }
+}
+
+const RootPage = async ({ searchParams }: RootPageprops) => {
   const categories = await prismadb.category.findMany()
+  const data = await prismadb.companion.findMany({
+    where: {
+      categoryId: searchParams.categoryId,
+      name: {
+        search: searchParams.name,
+      },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+    include: {
+      _count: {
+        select: {
+          messages: true,
+        },
+      },
+    },
+  })
   return (
     <div className="h-full p-4 space-y-2 ">
       <SearchInput />
