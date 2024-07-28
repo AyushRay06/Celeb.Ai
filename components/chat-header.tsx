@@ -13,7 +13,7 @@ interface ChatHeaderProps {
 
 export const ChatHeader = ({ companion }: ChatHeaderProps) => {
   return (
-    <div className="flex w-full justify-between items-center border-b">
+    <div className="flex w-full justify-between items-center border-b border-primary/10 pb-4">
       Chat Header
     </div>
   )
