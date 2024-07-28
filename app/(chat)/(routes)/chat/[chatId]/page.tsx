@@ -2,6 +2,7 @@ import prismadb from "@/lib/prismadb"
 import { auth, redirectToSignIn } from "@clerk/nextjs/server"
 import { redirect } from "next/navigation"
 import { ChatClient } from "./components/client"
+import { RedirectToSignIn } from "@clerk/nextjs"
 
 interface ChatPageProps {
   params: {
@@ -13,7 +14,7 @@ const Chat = async ({ params }: ChatPageProps) => {
   const { userId } = auth()
 
   if (!userId) {
-    return redirectToSignIn()
+    return <RedirectToSignIn />
   }
 
   const companion = await prismadb.companion.findUnique({
