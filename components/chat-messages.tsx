@@ -26,6 +26,10 @@ export const ChatMessages = ({
     }, 1000)
   }, [])
 
+  useEffect(() => {
+    scrollRef?.current?.scrollIntoView({ behavior: "smooth" })
+  }, [messages.length])
+
   return (
     <div className="flex-1 overflow-y-auto pr-4">
       <ChatMessage
