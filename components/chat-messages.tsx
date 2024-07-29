@@ -21,10 +21,6 @@ export const ChatMessages = ({
         role="system"
         content={`Hello, I am ${companion.name}, ${companion.description}`}
       />
-      <ChatMessage
-        role="user"
-        content={`Helloo my name is ayush Ray whats up folks`}
-      />
     </div>
   )
 }
