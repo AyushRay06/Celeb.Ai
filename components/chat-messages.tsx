@@ -33,6 +33,15 @@ export const ChatMessages = ({
         role="system"
         content={`Hello, I am ${companion.name}, ${companion.description}`}
       />
+      {messages.map((message) => (
+        <ChatMessage
+          role={message.role}
+          key={message.content}
+          content={message.content}
+          src={message.src}
+        />
+      ))}
+      {isLoading && <ChatMessage role="system" src={companion.src} isLoading />}
     </div>
   )
 }
